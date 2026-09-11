@@ -1,0 +1,201 @@
+## 1. BRUTALIST INDUSTRIAL — Steel Compression
+
+Create a roughly two-and-a-half-minute industrial warehouse techno track called Steel Compression.
+
+Use 96 bars at 146 BPM, swing 0.02, and seed 441902. Allow 5 seconds of tail.
+
+Use D Phrygian: root_pitch_class 2, scale_intervals [0,1,3,5,7,8,10]. Keep pitched material extremely sparse, mainly D, F, A, C and occasional Eb tension.
+
+Make the track hostile, dry, mechanical and relentlessly forward-moving. The groove should feel like heavy machinery cycling inside a concrete room rather than a melodic techno record.
+
+Use a hard centered kick around MIDI 31–33 with drive around 1.6–1.9 and short 2–3 step duration. Build a low rolling bass around the kick but leave holes so the kick transient and body remain exposed. Duck the bass strongly enough that the low end breathes.
+
+Make metallic percussion a major structural element. Use perc voices as short machine-like strikes with contrasting rhythmic placements, velocity accents and modest left/right pan. Closed hats should be aggressive but not constant. Open hats should appear only when the arrangement reaches maximum pressure.
+
+Use very little harmonic content. Create one recognizable one-bar stab motif consisting of only a few notes and mutate it through subtraction, octave transposition and altered event positions. Do not turn it into a conventional melody.
+
+Keep room sends generally low. The main body should feel dry and close. Use abrupt temporary increases in room_send or delay_send at transitions so the surrounding warehouse briefly becomes audible before collapsing back into dryness.
+
+Sections:
+
+* Ignition (0,8): kick and isolated metallic hits only.
+* Machine cycle (8,16): introduce bass and closed hats.
+* Compression (24,16): add the sparse stab motif and denser metal.
+* Shutdown chamber (40,8): remove kick and bass; leave metal tails, noise and isolated motif fragments.
+* Restart (48,16): rebuild asymmetrically rather than simply restoring everything.
+* Maximum pressure (64,24): strongest groove, with deliberate subtraction every eight bars.
+* Power down (88,8): remove bass first, then hats and percussion, leaving kick briefly exposed.
+
+Keep kick events at probability 1. Keep the central motif deterministic. Use probability only for secondary percussion details.
+
+Return only the JSON fields requested by the configured response schema.
+## 2. DUB TECHNO — Submerged Architecture
+
+Create a spacious dub-techno track called Submerged Architecture.
+
+Use 88 bars at 124 BPM, swing 0.11, and seed 92016. Allow 8 seconds of tail.
+
+Use Bb Dorian: root_pitch_class 10, scale_intervals [0,2,3,5,7,9,10]. Focus pitched material on Bb, Db, Eb, F and Ab.
+
+The track should feel deep, nocturnal, restrained and enormous. Prioritize negative space, long echoes, dark filtering and slowly changing relationships between very few elements.
+
+Use a deep centered kick around MIDI 31 with moderate drive around 1.25–1.45. Do not make the kick overly aggressive. Bass should be sparse and warm, often leaving entire beats empty.
+
+Create two related stab patterns using longer stab notes. One should act as the recognizable dub chord gesture; the other should be a darker and more fragmented response. Keep them rhythmically simple but use clip-level lowpass_hz, gain_db, room_send and delay_send ramps to make repeated material feel different over time.
+
+Use delay as an important compositional layer. Dry stab events should remain relatively centered while their delay reflections create perceived movement. Use noise quietly as distant atmosphere rather than a foreground sound.
+
+Do not fill every subdivision with percussion. Closed hats should be understated. Clap should appear selectively rather than on every conventional backbeat. Open hats should be rare.
+
+Sections:
+
+* Depth opening (0,12): kick, atmosphere and isolated chord fragments.
+* First current (12,16): introduce bass and primary dub stab.
+* Expansion (28,16): add delayed responses and restrained hats.
+* Empty chamber (44,8): remove kick and bass; let long stab gestures and echoes dominate.
+* Return current (52,20): restore groove gradually with darker filtering.
+* Deepest section (72,8): richest overlap of bass, stab and delay without becoming dense.
+* Dissolve (80,8): remove rhythm and leave spacious reflections.
+
+Use restrained velocity changes. Keep important chord events at probability 1. The sense of evolution should come primarily from arrangement, filtering, sends, gain and omission.
+
+Return only the JSON fields requested by the configured response schema.
+
+## 3. POLYRHYTHMIC TRIBAL — Five Against Concrete
+
+Create a percussion-driven hypnotic techno track called Five Against Concrete.
+
+Use 100 bars at 134 BPM, swing 0.07, and seed 550731. Allow 4 seconds of tail.
+
+Use C minor pentatonic: root_pitch_class 0, scale_intervals [0,3,5,7,10]. Pitched content should remain secondary and use only C, Eb, F, G and Bb.
+
+The identity of the track must come from interlocking rhythmic cycles rather than harmony.
+
+Use a solid centered kick around MIDI 32 with drive around 1.4. Keep a simple four-on-floor foundation, then construct multiple percussion patterns that imply different cycle lengths through event placement. Use one repeating pattern that feels three-based, another that feels five-based, and another sparse answer pattern. They must still operate inside the engine's fixed 16-step bar grid.
+
+Make the listener feel changing accents against an unchanged kick. The groove should periodically seem to rotate even though the tempo and meter never change.
+
+Bass should be extremely simple: short low notes used more as punctuation than as a conventional bassline. Use a minimal stab call consisting of one or two pitches only.
+
+Use perc tracks heavily but differentiate them through tone, drive, filtering, level and pan. Avoid excessive room effects; rhythmic clarity is more important than atmosphere.
+
+Sections:
+
+* Ground pulse (0,8): kick and one percussion cycle.
+* First interlock (8,16): introduce a second rhythmic cycle.
+* Rotating grid (24,20): add bass punctuation and the third percussion layer.
+* Ritual break (44,8): remove kick but preserve the interlocking percussion illusion.
+* Re-entry (52,16): kick returns beneath changed accent relationships.
+* Full convergence (68,24): all primary cycles interact, with controlled subtraction every eight bars.
+* Fragmentation (92,8): progressively remove layers until only one percussion cycle remains.
+
+Use probability 1 for the kick and the structural percussion accents that define each cycle. Use probability selectively on ghost hits only.
+
+Return only the JSON fields requested by the configured response schema.
+
+## 4. ACID-LIKE SEQUENCE — Corrosive Loop
+
+Create a fast hypnotic techno track called Corrosive Loop.
+
+Use 112 bars at 142 BPM, swing 0.05, and seed 303991. Allow 4 seconds of tail.
+
+Use E Phrygian: root_pitch_class 4, scale_intervals [0,1,3,5,7,8,10]. Center the sequence on E, G, B, D and occasional F.
+
+Do not request an acid voice because none exists. Instead create the impression of an acid-style sequencer using short pitched stab events, repetition, octave transpositions, velocity accents, note-density variants and clip-level lowpass_hz ramps.
+
+Construct one extremely recognizable one-bar sequence early in the track. Reuse it aggressively. Generate several explicit pattern variants rather than replacing it with unrelated motifs.
+
+Use a firm kick near MIDI 32 with drive around 1.5. Create a rolling bass foundation but keep it simpler than the stab sequence.
+
+The main sequence should evolve through:
+
+* octave changes;
+* one or two altered note positions;
+* strategically removed notes;
+* accented events;
+* darker and brighter lowpass settings;
+* occasional delay_send increases;
+* complete disappearance followed by an unmistakable return.
+
+Do not make the arrangement depend on a conventional breakdown/drop formula. Instead create long waves of pressure where the same loop feels increasingly unstable.
+
+Sections:
+
+* Seed (0,8): kick, bass hints and only fragments of the sequence.
+* Lock (8,16): establish the complete one-bar sequence.
+* Corrosion A (24,24): progressively alter filtering and density.
+* Vacuum (48,8): remove kick and bass; leave fragmented sequence and delay.
+* Corrosion B (56,24): return with an octave or accent variation.
+* Overload (80,24): maximum rhythmic density and brightest sequence state, with periodic subtraction.
+* Residue (104,8): strip the track back to a few recognizable sequence events.
+
+Main kick and sequence notes should use probability 1. Avoid randomizing the identity of the hook.
+
+Return only the JSON fields requested by the configured response schema.
+
+## 5. EXTREME MINIMALISM — One Millimeter Per Minute
+
+Create a minimal hypnotic techno track called One Millimeter Per Minute.
+
+Use 92 bars at 128 BPM, swing 0.16, and seed 731008. Allow 6 seconds of tail.
+
+Use A minor: root_pitch_class 9, scale_intervals [0,2,3,5,7,8,10]. Use almost no harmonic information. Center any pitched material around A, C, E and G.
+
+The challenge is to create a compelling full track from very little material.
+
+Use only a small number of active tracks at any given moment. The listener should initially believe the track is nearly static, but careful listening should reveal continuous micro-evolution.
+
+Use a rounded centered kick around MIDI 31–32 with moderate drive around 1.25–1.4. Keep bass notes sparse and short.
+
+Create one tiny rhythmic motif consisting of no more than three or four significant events per bar. Develop it through velocity, omission, transposition, filtering and changed clip placement rather than adding new melodies.
+
+Exploit swing strongly enough to make hats and secondary percussion feel loose against the rigid kick. Keep clap placement restrained and occasionally omit it entirely for long stretches.
+
+Do not solve the arrangement by continually adding tracks. Frequently change energy by removing one sound, changing one pattern variant, altering filtering or exposing a previously masked rhythmic detail.
+
+Sections:
+
+* Bare loop (0,12): kick and one secondary event.
+* First mutation (12,16): bass and tiny motif appear.
+* False plateau (28,16): almost no new material; evolve existing elements subtly.
+* Absence (44,8): remove kick while retaining enough rhythm to preserve pulse.
+* Recontextualization (52,16): same motifs return in altered relationships.
+* Peak minimalism (68,16): strongest groove without substantially increasing track count.
+* Reduction (84,8): progressively expose the original bare loop.
+
+Keep all structurally important events deterministic. Use probability sparingly.
+
+Return only the JSON fields requested by the configured response schema.
+
+## 6. BROKEN TECHNO — Fractured Transit
+
+Create a dark broken-techno track called Fractured Transit.
+
+Use 96 bars at 132 BPM, swing 0.04, and seed 618442. Allow 5 seconds of tail.
+
+Use G Phrygian: root_pitch_class 7, scale_intervals [0,1,3,5,7,8,10]. Restrict pitched material mainly to G, Bb, D, F and occasional Ab.
+
+Do not make the kick four-on-the-floor for the entire track.
+
+Build several explicit kick patterns: one stable four-on-floor pattern, one broken syncopated pattern, and one sparse transitional pattern. The piece should move between them while remaining clearly techno rather than becoming breakbeat or drum and bass.
+
+Use a powerful centered kick around MIDI 32, drive around 1.4–1.6. Bass must react compositionally to the changing kick patterns: when the kick becomes broken, reposition bass events to preserve low-end call-and-response rather than simply repeating the same bass pattern.
+
+Create a short two-bar stab motif with a cold, transit-system feeling. Keep it rhythmically recognizable even as drum architecture changes underneath it.
+
+Use hats and percussion to reinforce or contradict the kick grid. At some transitions, let hats preserve the old pulse while the kick changes underneath them.
+
+Sections:
+
+* Platform (0,8): stable four-on-floor rhythm.
+* Departure (8,16): introduce motif and bass.
+* Fracture I (24,16): switch to broken kick architecture.
+* Suspension (40,8): remove kick; retain hats, noise and motif fragments.
+* False return (48,8): four-on-floor returns briefly.
+* Fracture II (56,24): alternate stable and broken kick patterns using explicit clip changes.
+* Final acceleration (80,8): strongest coherent groove.
+* Terminal (88,8): progressively dismantle the rhythm.
+
+Kick events that define each pattern should use probability 1. Broken rhythm must come from explicitly composed event positions, not random probability.
+
+Return only the JSON fields requested by the configured response schema.

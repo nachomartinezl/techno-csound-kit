@@ -1,9 +1,11 @@
 {
-  "contract_revision": "1.1.0",
-  "source_sha256": "b202948a1211a04983a70da4433714bbb8cad425b44a0e1cd2f74f2977b44613",
+  "contract_revision": "1.2.0",
+  "preset_version": "1.0.0",
+  "presets_sha256": "3509d5cbddee0203e811a7c2ba5de86ec9433ee40ff5a7121a85467330f7e141",
+  "source_sha256": "d338a390162a72cee012dfca451f9b89b2202ec4c970bf07707075ad9545a83e",
   "schemas": {
     "full": {
-      "nodes": 66,
+      "nodes": 67,
       "depth": 5
     },
     "structure": {
@@ -11,7 +13,7 @@
       "depth": 3
     },
     "tracks": {
-      "nodes": 16,
+      "nodes": 17,
       "depth": 4
     },
     "patterns": {
@@ -25,12 +27,12 @@
   },
   "note": "Node/depth statistics are local regression metrics, NOT Google's undocumented decoder budget.",
   "generated_sha256": {
-    "schemas/gemini-response-schema.json": "4fab9f86f80be48d367a2516c7c4e596b2c4193d294adba9493e6e7ea73adb42",
-    "schemas/track.openapi.json": "6cc1297dc81f9793183a5741313018fc92f5f9bade31abe2abe6206cee8fb1a2",
+    "schemas/gemini-response-schema.json": "fdd914877b3f346e84310f1b40aa4e1a4468f2c11dea42d26381d189e89d1bf4",
+    "schemas/track.openapi.json": "7d5da582fb9ecea4ce590441b5f31afc60f50604f358f1998d2a19daa91bd479",
     "schemas/gemini-stages/structure.schema.json": "241b55a4c939f3c3d6a08f974c9343738524df03b923f68d900b3ac6fc6f4780",
-    "schemas/gemini-stages/tracks.schema.json": "a0299208a41271e903c3492843f9042dc36f7b395ee02a4f25e519eaff9bc8ad",
+    "schemas/gemini-stages/tracks.schema.json": "aea014bbda58c955a6720a68b0f30fef39998bafb687ca1de48d7d35773066bb",
     "schemas/gemini-stages/patterns.schema.json": "49aefcc4a00977118d644ad22d653ce72ac3001092211bc0b80524993e115630",
     "schemas/gemini-stages/clips.schema.json": "1b1afac69b220b2385669ee694bc0bce6e6282d811539f701b2ee9acea29bd15",
-    "prompts/SYSTEM_PROMPT.txt": "e957d2ce3e6c7e610a64fd93c8a28e69d1ac2cb6d0d587411c1281a747cb117d"
+    "prompts/SYSTEM_PROMPT.txt": "76b1eba090699075bd25dffd9be3ebe6895aeb868149c8a6a16b0a8ce63c292a"
   }
 }

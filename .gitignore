@@ -3,6 +3,7 @@
 !/projects/README.md
 /reports/
 /track_*
+/generated*.txt
 *.audio/
 *.csd
 *.events.json

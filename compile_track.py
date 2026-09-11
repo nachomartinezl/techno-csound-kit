@@ -9,6 +9,7 @@ import re
 import tempfile
 from pathlib import Path
 from jsonschema import Draft7Validator
+from presets import COMPILER_VERSION, PRESET_VERSION, parameters, variants
 from contract import (CONTRACT_REVISION, LEVELS, MAX_EVENTS, MAX_INPUT_BYTES,
                       MAX_POLYPHONY, ROOT, SCHEMA, VOICES, ramp_bounds)
 
@@ -97,6 +98,8 @@ def validate(d):
     if end != d["bars"]:
         issue("/sections", f'Sections end at bar {end}; expected {d["bars"]}.')
     for i, track in enumerate(d["tracks"]):
+        if track.get("variant", "classic") not in variants(track["voice"]):
+            issue(f"/tracks/{i}/variant", f'For {track["voice"]}, choose: {", ".join(variants(track["voice"]))}.', "variant")
         mix = track["mix"]
         if mix["highpass_hz"] >= mix["lowpass_hz"]:
             issue(f"/tracks/{i}/mix", "highpass_hz must be less than lowpass_hz.")
@@ -225,6 +228,8 @@ def expand(d):
         raise InvalidTrack(f"{peak} simultaneous notes exceeds {MAX_POLYPHONY}; reduce overlapping notes.")
     music = d["bars"] * 4 * 60 / d["bpm"]
     return {"format_version": "techno-csound-events-1", "contract_revision": CONTRACT_REVISION,
+            "compiler_version": COMPILER_VERSION, "preset_version": PRESET_VERSION,
+            "track_variants": {t["id"]: t.get("variant", "classic") for t in d["tracks"]},
             "bpm": d["bpm"], "music_seconds": music, "render_seconds": music + d["master"]["tail_seconds"],
             "peak_polyphony": peak, "events": events}
 
@@ -267,8 +272,10 @@ def make_csd(d, expanded, output_wav=None):
         raise InvalidTrack("Engine contains an unresolved substitution token.")
     def line(fields):
         return "i " + " ".join(format(v, ".12g") for v in fields)
-    score = ["; Times are seconds; no tempo statement. Contract " + CONTRACT_REVISION]
-    score += [line(e["pfields"]) for e in expanded["events"]]
+    score = ["; Times are seconds; no tempo statement. Contract " + CONTRACT_REVISION,
+             f"; Compiler {COMPILER_VERSION}; presets {PRESET_VERSION}"]
+    tracks = {t["id"]: t for t in d["tracks"]}
+    score += [line(e["pfields"] + [0] + parameters(tracks[e["track"]])) for e in expanded["events"]]
     score += [line([90, 0, expanded["render_seconds"]]), line([99, 0, expanded["render_seconds"]]), "e"]
     return ('<CsoundSynthesizer>\n<CsOptions>\n-d -m0 -W -f -o "' + output_wav + '"\n</CsOptions>\n<CsInstruments>\n' + orc +
             "\n</CsInstruments>\n<CsScore>\n" + "\n".join(score) + "\n</CsScore>\n</CsoundSynthesizer>\n")
@@ -299,6 +306,8 @@ def check_destinations(inputs, outputs):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--version", action="version",
+                        version=f"Techno Csound Kit {COMPILER_VERSION}; contract {CONTRACT_REVISION}; presets {PRESET_VERSION}")
     parser.add_argument("input", type=Path)
     parser.add_argument("output", type=Path, nargs="?")
     parser.add_argument("--events", type=Path)

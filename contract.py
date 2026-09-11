@@ -8,7 +8,7 @@ import json
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
-CONTRACT_REVISION = "1.1.0"
+CONTRACT_REVISION = "1.2.0"
 MAX_EVENTS = 100000
 MAX_POLYPHONY = 128
 MAX_INPUT_BYTES = 8 * 1024 * 1024

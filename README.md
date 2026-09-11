@@ -1,4 +1,4 @@
-# Techno Csound Kit — v1
+# Techno Csound Kit — v1.1
 
 Turn a structured musical plan into a Csound arrangement, aligned stems, and a
 measured stereo master. Any LLM can supply the JSON; generation happens outside
@@ -29,12 +29,22 @@ In AI Studio, use:
 | Structured output schema | [gemini-response-schema.json](schemas/gemini-response-schema.json) |
 | Example artistic brief | [USER_PROMPT_EXAMPLE.txt](prompts/USER_PROMPT_EXAMPLE.txt) |
 
-Paste the schema object itself into the schema editor. Save the returned JSON in
-its own project folder. To try the pipeline with the included example:
+Paste the schema object itself into the schema editor. The easiest workflow accepts
+either a `.txt` or `.json` drop file; its content must be plain JSON:
 
 ```bash
-mkdir -p projects/my-track
-cp examples/example.track.json projects/my-track/track.json
+python new_track.py track_11.txt
+```
+
+This validates the plan, creates `projects/track_11/`, normalizes it to
+`track_11.json`, and runs the full render/master pipeline. A valid source dropped
+directly in the kit root is consumed after its project copy is safely written,
+keeping the root clean. An external source is preserved. Override the derived name
+with `--name nocturnal_pressure`. Existing project folders are never merged or
+replaced. To try the included example without changing it:
+
+```bash
+python new_track.py examples/example.track.json --name my_track
 ```
 
 For your own music, replace `track.json` with the generated plan. See
@@ -99,6 +109,7 @@ project. An old master may remain after a failed run; a successful new
 
 ```text
 compile_track.py       Validation and complete render entry point
+new_track.py           Import generated JSON into a self-contained project
 audio_pipeline.py     Stem routing, remixing, and mastering
 audio_checks.py       Shared audio measurements and subprocess checks
 assemble_track.py     Assemble staged LLM responses
@@ -115,8 +126,8 @@ projects/             Local compositions and audio (ignored by Git)
 reports/              Local verification output (ignored by Git)
 ```
 
-Existing local tracks are in `projects/track_1/` through `projects/track_9/`.
-They are not required by the software or included in the source commit.
+Existing local tracks are kept under `projects/track_N/`. They are not required by
+the software or included in the source commit.
 
 ## Verify and develop
 
@@ -134,3 +145,20 @@ See [contributing](CONTRIBUTING.md) for contract changes and first-commit checks
 v1 preserves generated balance and offers repeatable controls; it does not infer a
 professional mix automatically. Mastering targets −11 LUFS while prioritizing a
 −1.3 dBTP ceiling. Inspect the actual results and audition before release.
+
+## Controlled timbral variation
+
+Tracks can optionally select a compiler-owned sound preset with `"variant"`:
+kick supports `subby`, `punchy`, `tight`; closed hat supports `crisp`, `dark`,
+`metallic`; open hat supports `airy`, `dark`, `metallic`; clap supports `dry`,
+`sharp`, `wide`. Other voices support `classic` only. Omit the field or use
+`classic` to preserve the original v1.0 sound. Use the regenerated prompt/schema
+when generating new plans. See [preset vocabulary and evaluation](docs/presets.md).
+
+```bash
+python compare_presets.py
+```
+
+This renders a fixed groove twice per variant, measures isolated stems and full
+mixes, and creates `reports/preset-comparisons/index.html` for listening.
+The known baseline is tagged `v1.0.0`; see [versioning](docs/presets.md#versioning).

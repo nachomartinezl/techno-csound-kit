@@ -91,6 +91,23 @@
         },
         "mix": {
           "$ref": "#/definitions/mix"
+        },
+        "variant": {
+          "type": "string",
+          "enum": [
+            "classic",
+            "subby",
+            "punchy",
+            "tight",
+            "crisp",
+            "dark",
+            "metallic",
+            "airy",
+            "dry",
+            "sharp",
+            "wide"
+          ],
+          "description": "Optional semantic voice preset. Omitted or classic retains v1.0 sound; voice-specific choices are checked by the compiler."
         }
       },
       "required": [

@@ -48,4 +48,8 @@ in C and Python; bit-identical synthesized audio across Csound versions/platform
 not promised. Caps are 100,000 candidate events and 128 simultaneous source notes.
 
 
-For field types and bounds, see [the authoritative schema](../schemas/track.schema.json). The generated CSD adds an internal p14 stem index; the portable event array above remains unchanged.
+For field types and bounds, see [the authoritative schema](../schemas/track.schema.json).
+The generated CSD adds an internal p14 stem index and p15–p27 preset controls;
+the portable event array above remains unchanged. Optional `tracks[].variant`
+selects a compiler-owned percussion preset. See [presets](presets.md) for the
+vocabulary, defaults, versions, and compensation policy.

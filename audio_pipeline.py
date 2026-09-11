@@ -7,6 +7,7 @@ from pathlib import Path
 import re
 import tempfile
 from audio_checks import run, inspect_audio
+from presets import COMPILER_VERSION, PRESET_VERSION
 
 
 def quoted(path):
@@ -56,9 +57,13 @@ def prepare(csd, data, expanded, output):
     event_iter = iter(expanded['events'])
     for i, line in enumerate(lines):
         if line.startswith('i ') and int(float(line.split()[1])) in range(1, 9):
-            lines[i] += ' ' + str(tracks[next(event_iter)['track']])
+            fields = line.split()
+            fields[14] = str(tracks[next(event_iter)['track']])
+            lines[i] = ' '.join(fields)
     csd = before+'<CsScore>'+'\n'.join(lines)+'\n</CsScore>'+after
-    manifest = {'version': 1, 'csd': str(output.resolve()), 'duration_seconds': expanded['render_seconds'], 'stems': entries}
+    manifest = {'version': 1, 'compiler_version': COMPILER_VERSION, 'preset_version': PRESET_VERSION,
+                'track_variants': {t['id']: t.get('variant', 'classic') for t in data['tracks']},
+                'csd': str(output.resolve()), 'duration_seconds': expanded['render_seconds'], 'stems': entries}
     (directory/'stems.json').write_text(json.dumps(manifest, indent=2)+'\n')
     recipe = directory/'mix.json'
     if not recipe.exists():
@@ -138,6 +143,7 @@ def mix(directory):
     master.replace(directory/'master.wav')
     master = directory/'master.wav'
     report = {'recipe': recipe, 'premix': measured, 'limiter_input_gain_db': drive,
+              'synthesis': {key: manifest.get(key, 'legacy/unrecorded') for key in ('compiler_version', 'preset_version', 'track_variants')},
               'post_limiter': post, 'final_gain_db': gain, 'final': final,
               'target_reached': abs(final['integrated_lufs']-target) <= .3,
               'note': 'Peak safety takes priority over loudness. No dynamic loudness normalization.',

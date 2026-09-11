@@ -7,8 +7,11 @@ Keep CLI entry points at the root and local music under `projects/`. Do not comm
 rendered audio, environments, caches, review backups, or private track projects.
 An explicit curated plan belongs in `examples/`.
 
-The release is v1.0.0; contract revision is 1.1.0; plan format is `techno-csound-1`.
+The release is v1.1.0; contract revision is 1.2.0; plan format is `techno-csound-1`.
 These version numbers describe different things.
+Preset version 1.0.0 is owned by `presets.py`. Bump it for any DSP mapping or
+compensation change and regenerate the contract manifest. The v1.0.0 Git tag
+preserves the original stable release; never move that tag to newer code.
 
 ## Contracts
 
@@ -31,6 +34,7 @@ See [the format reference](docs/format.md) for timing and event ordering.
 ```bash
 python -m unittest discover -s tests -v
 python verify_system.py --render
+python compare_presets.py
 ```
 
 Tests use checked-in examples and fixtures, never local projects.
@@ -42,6 +46,11 @@ The short audio test checks alignment, near-null recombination, recipe preservat
 and mastering. Full verification renders three fixed plans and writes
 `reports/verification.json`; temporary audio is deleted. Google's remote decoder
 is not tested by this suite.
+
+Preset comparisons alter one voice at a time in a fixed checked-in groove. They
+enforce sample repeatability, level tolerances, safe peaks, and waveform distinction.
+WAV container timestamps are excluded from audio hashes. Review the listening page
+as well: measured distinction alone cannot certify a production-ready sound.
 
 ## First commit
 

@@ -1,0 +1,252 @@
+{
+  "format_version": "techno-csound-1",
+  "title": "Controlled timbre comparison",
+  "seed": 123456,
+  "bpm": 140,
+  "bars": 8,
+  "swing": 0,
+  "tonality": {
+    "root_pitch_class": 7,
+    "scale_intervals": [
+      0,
+      3,
+      5,
+      7,
+      10
+    ]
+  },
+  "tracks": [
+    {
+      "id": "kick",
+      "voice": "kick",
+      "role": "Centered foreground engine; dry and stable",
+      "tone": 0.5,
+      "drive": 1.4,
+      "mix": {
+        "gain_db": -8,
+        "pan": 0,
+        "highpass_hz": 25,
+        "lowpass_hz": 9000,
+        "room_send": 0.12,
+        "delay_send": 0.08,
+        "duck": 0
+      }
+    },
+    {
+      "id": "closed",
+      "voice": "closed_hat",
+      "role": "Upper left ticks with velocity groove",
+      "tone": 0.5,
+      "drive": 1,
+      "mix": {
+        "gain_db": -8,
+        "pan": -0.3,
+        "highpass_hz": 5500,
+        "lowpass_hz": 13000,
+        "room_send": 0.12,
+        "delay_send": 0.08,
+        "duck": 0
+      }
+    },
+    {
+      "id": "open",
+      "voice": "open_hat",
+      "role": "Upper right offbeat air",
+      "tone": 0.5,
+      "drive": 1,
+      "mix": {
+        "gain_db": -8,
+        "pan": 0.35,
+        "highpass_hz": 4800,
+        "lowpass_hz": 12000,
+        "room_send": 0.12,
+        "delay_send": 0.08,
+        "duck": 0
+      }
+    },
+    {
+      "id": "clap",
+      "voice": "clap",
+      "role": "Central backbeat sharing the room",
+      "tone": 0.5,
+      "drive": 1,
+      "mix": {
+        "gain_db": -8,
+        "pan": 0.08,
+        "highpass_hz": 700,
+        "lowpass_hz": 7500,
+        "room_send": 0.12,
+        "delay_send": 0.08,
+        "duck": 0
+      }
+    }
+  ],
+  "patterns": [
+    {
+      "id": "kick_pattern",
+      "bars": 1,
+      "events": [
+        {
+          "step": 0,
+          "duration_steps": 2,
+          "midi": 32,
+          "velocity": 0.8,
+          "probability": 1
+        },
+        {
+          "step": 4,
+          "duration_steps": 2,
+          "midi": 32,
+          "velocity": 0.8,
+          "probability": 1
+        },
+        {
+          "step": 8,
+          "duration_steps": 2,
+          "midi": 32,
+          "velocity": 0.8,
+          "probability": 1
+        },
+        {
+          "step": 12,
+          "duration_steps": 2,
+          "midi": 32,
+          "velocity": 0.8,
+          "probability": 1
+        }
+      ]
+    },
+    {
+      "id": "closed_pattern",
+      "bars": 1,
+      "events": [
+        {
+          "step": 2,
+          "duration_steps": 0.5,
+          "midi": 72,
+          "velocity": 0.8,
+          "probability": 1
+        },
+        {
+          "step": 6,
+          "duration_steps": 0.5,
+          "midi": 72,
+          "velocity": 0.8,
+          "probability": 1
+        },
+        {
+          "step": 10,
+          "duration_steps": 0.5,
+          "midi": 72,
+          "velocity": 0.8,
+          "probability": 1
+        },
+        {
+          "step": 14,
+          "duration_steps": 0.5,
+          "midi": 72,
+          "velocity": 0.8,
+          "probability": 1
+        }
+      ]
+    },
+    {
+      "id": "open_pattern",
+      "bars": 1,
+      "events": [
+        {
+          "step": 6,
+          "duration_steps": 3,
+          "midi": 72,
+          "velocity": 0.8,
+          "probability": 1
+        },
+        {
+          "step": 14,
+          "duration_steps": 3,
+          "midi": 72,
+          "velocity": 0.8,
+          "probability": 1
+        }
+      ]
+    },
+    {
+      "id": "clap_pattern",
+      "bars": 1,
+      "events": [
+        {
+          "step": 4,
+          "duration_steps": 1.5,
+          "midi": 60,
+          "velocity": 0.8,
+          "probability": 1
+        },
+        {
+          "step": 12,
+          "duration_steps": 1.5,
+          "midi": 60,
+          "velocity": 0.8,
+          "probability": 1
+        }
+      ]
+    }
+  ],
+  "sections": [
+    {
+      "name": "comparison",
+      "start_bar": 0,
+      "bars": 8,
+      "intent": "Fixed groove for timbral comparison"
+    }
+  ],
+  "clips": [
+    {
+      "track": "kick",
+      "pattern": "kick_pattern",
+      "start_bar": 0,
+      "bars": 8,
+      "gain_db": 0,
+      "transpose": 0,
+      "ramps": []
+    },
+    {
+      "track": "closed",
+      "pattern": "closed_pattern",
+      "start_bar": 0,
+      "bars": 8,
+      "gain_db": 0,
+      "transpose": 0,
+      "ramps": []
+    },
+    {
+      "track": "open",
+      "pattern": "open_pattern",
+      "start_bar": 0,
+      "bars": 8,
+      "gain_db": 0,
+      "transpose": 0,
+      "ramps": []
+    },
+    {
+      "track": "clap",
+      "pattern": "clap_pattern",
+      "start_bar": 0,
+      "bars": 8,
+      "gain_db": 0,
+      "transpose": 0,
+      "ramps": []
+    }
+  ],
+  "effects": {
+    "room_feedback": 0.76,
+    "room_damping_hz": 4800,
+    "room_return_db": -9,
+    "delay_beats": 0.75,
+    "echo_decay": 0.42,
+    "delay_return_db": -12
+  },
+  "master": {
+    "gain_db": -4,
+    "tail_seconds": 3
+  }
+}

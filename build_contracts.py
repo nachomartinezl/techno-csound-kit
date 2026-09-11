@@ -5,6 +5,7 @@ import hashlib
 import json
 from contract import (CONTRACT_REVISION, ROOT, SCHEMA, audit_gemini,
                       gemini_schema, openapi_document, range_guide)
+from presets import PRESET_VERSION, guide, vocabulary
 
 STAGES = {
     "structure": [key for key in SCHEMA["properties"] if key not in ("tracks", "patterns", "clips")],
@@ -13,6 +14,8 @@ STAGES = {
 
 
 def generated_files():
+    if SCHEMA["definitions"]["track"]["properties"]["variant"]["enum"] != vocabulary():
+        raise ValueError("Schema variant enum differs from compiler preset vocabulary")
     compact = lambda value: json.dumps(value, ensure_ascii=False, separators=(",", ":")) + "\n"
     pretty = lambda value: json.dumps(value, ensure_ascii=False, indent=2) + "\n"
     schema = gemini_schema()
@@ -23,9 +26,11 @@ def generated_files():
         stage = {"type": "object", "properties": {key: schema["properties"][key] for key in keys}, "required": keys}
         files[f"schemas/gemini-stages/{name}.schema.json"] = compact(stage)
         metrics[name] = audit_gemini(stage)
-    prompt = (ROOT / "prompts/SYSTEM_PROMPT_SOURCE.txt").read_text().replace("{FIELD_LIMITS}", range_guide())
+    prompt = (ROOT / "prompts/SYSTEM_PROMPT_SOURCE.txt").read_text().replace("{FIELD_LIMITS}", range_guide()).replace("{VARIANT_GUIDE}", guide())
     files["prompts/SYSTEM_PROMPT.txt"] = prompt
     manifest = {"contract_revision": CONTRACT_REVISION,
+                "preset_version": PRESET_VERSION,
+                "presets_sha256": hashlib.sha256((ROOT / "presets.py").read_bytes()).hexdigest(),
                 "source_sha256": hashlib.sha256((ROOT / "schemas/track.schema.json").read_bytes()).hexdigest(),
                 "schemas": metrics,
                 "note": "Node/depth statistics are local regression metrics, NOT Google's undocumented decoder budget.",
