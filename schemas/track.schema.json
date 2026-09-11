@@ -1,0 +1,453 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Techno Track v1",
+  "definitions": {
+    "mix": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "gain_db": {
+          "type": "number",
+          "minimum": -30,
+          "maximum": 6
+        },
+        "pan": {
+          "type": "number",
+          "minimum": -0.85,
+          "maximum": 0.85
+        },
+        "highpass_hz": {
+          "type": "number",
+          "minimum": 20,
+          "maximum": 12000
+        },
+        "lowpass_hz": {
+          "type": "number",
+          "minimum": 40,
+          "maximum": 18000
+        },
+        "room_send": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 0.8
+        },
+        "delay_send": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 0.8
+        },
+        "duck": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 0.9
+        }
+      },
+      "required": [
+        "gain_db",
+        "pan",
+        "highpass_hz",
+        "lowpass_hz",
+        "room_send",
+        "delay_send",
+        "duck"
+      ]
+    },
+    "track": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_]{0,31}$"
+        },
+        "voice": {
+          "type": "string",
+          "enum": [
+            "kick",
+            "bass",
+            "closed_hat",
+            "open_hat",
+            "clap",
+            "perc",
+            "stab",
+            "noise"
+          ]
+        },
+        "role": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 240
+        },
+        "tone": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "drive": {
+          "type": "number",
+          "minimum": 0.1,
+          "maximum": 4,
+          "description": "Linear waveshaper drive, not a normalized intensity. 1 is neutral; below 1 softens the sound and attenuates the kick."
+        },
+        "mix": {
+          "$ref": "#/definitions/mix"
+        }
+      },
+      "required": [
+        "id",
+        "voice",
+        "role",
+        "tone",
+        "drive",
+        "mix"
+      ]
+    },
+    "event": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "step": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 255
+        },
+        "duration_steps": {
+          "type": "number",
+          "minimum": 0.125,
+          "maximum": 64
+        },
+        "midi": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 127
+        },
+        "velocity": {
+          "type": "number",
+          "minimum": 0.01,
+          "maximum": 1
+        },
+        "probability": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        }
+      },
+      "required": [
+        "step",
+        "duration_steps",
+        "midi",
+        "velocity",
+        "probability"
+      ]
+    },
+    "pattern": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_]{0,31}$"
+        },
+        "bars": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 16
+        },
+        "events": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/event"
+          },
+          "minItems": 1,
+          "maxItems": 4096
+        }
+      },
+      "required": [
+        "id",
+        "bars",
+        "events"
+      ]
+    },
+    "ramp": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "parameter": {
+          "type": "string",
+          "enum": [
+            "gain_db",
+            "lowpass_hz",
+            "highpass_hz",
+            "pan",
+            "room_send",
+            "delay_send"
+          ]
+        },
+        "from": {
+          "type": "number"
+        },
+        "to": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "parameter",
+        "from",
+        "to"
+      ]
+    },
+    "clip": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "track": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_]{0,31}$"
+        },
+        "pattern": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_]{0,31}$"
+        },
+        "start_bar": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 255
+        },
+        "bars": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 256
+        },
+        "gain_db": {
+          "type": "number",
+          "minimum": -18,
+          "maximum": 6
+        },
+        "transpose": {
+          "type": "integer",
+          "minimum": -24,
+          "maximum": 24
+        },
+        "ramps": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ramp"
+          },
+          "minItems": 0,
+          "maxItems": 4
+        }
+      },
+      "required": [
+        "track",
+        "pattern",
+        "start_bar",
+        "bars",
+        "gain_db",
+        "transpose",
+        "ramps"
+      ]
+    },
+    "section": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 240
+        },
+        "start_bar": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 255
+        },
+        "bars": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 256
+        },
+        "intent": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 240
+        }
+      },
+      "required": [
+        "name",
+        "start_bar",
+        "bars",
+        "intent"
+      ]
+    }
+  },
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "format_version": {
+      "type": "string",
+      "const": "techno-csound-1"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 240
+    },
+    "seed": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295
+    },
+    "bpm": {
+      "type": "number",
+      "minimum": 110,
+      "maximum": 170
+    },
+    "bars": {
+      "type": "integer",
+      "minimum": 8,
+      "maximum": 256
+    },
+    "swing": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 0.3
+    },
+    "tonality": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "root_pitch_class": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 11
+        },
+        "scale_intervals": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 11
+          },
+          "minItems": 1,
+          "maxItems": 12,
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "root_pitch_class",
+        "scale_intervals"
+      ]
+    },
+    "tracks": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/track"
+      },
+      "minItems": 1,
+      "maxItems": 16
+    },
+    "patterns": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/pattern"
+      },
+      "minItems": 1,
+      "maxItems": 128
+    },
+    "sections": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/section"
+      },
+      "minItems": 1,
+      "maxItems": 64
+    },
+    "clips": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/clip"
+      },
+      "minItems": 1,
+      "maxItems": 2048
+    },
+    "effects": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "room_feedback": {
+          "type": "number",
+          "minimum": 0.4,
+          "maximum": 0.88
+        },
+        "room_damping_hz": {
+          "type": "number",
+          "minimum": 1500,
+          "maximum": 9000
+        },
+        "room_return_db": {
+          "type": "number",
+          "minimum": -24,
+          "maximum": -3
+        },
+        "delay_beats": {
+          "type": "number",
+          "minimum": 0.25,
+          "maximum": 2
+        },
+        "echo_decay": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 0.65
+        },
+        "delay_return_db": {
+          "type": "number",
+          "minimum": -24,
+          "maximum": -3
+        }
+      },
+      "required": [
+        "room_feedback",
+        "room_damping_hz",
+        "room_return_db",
+        "delay_beats",
+        "echo_decay",
+        "delay_return_db"
+      ]
+    },
+    "master": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "gain_db": {
+          "type": "number",
+          "minimum": -18,
+          "maximum": 0
+        },
+        "tail_seconds": {
+          "type": "number",
+          "minimum": 2,
+          "maximum": 12
+        }
+      },
+      "required": [
+        "gain_db",
+        "tail_seconds"
+      ]
+    }
+  },
+  "required": [
+    "format_version",
+    "title",
+    "seed",
+    "bpm",
+    "bars",
+    "swing",
+    "tonality",
+    "tracks",
+    "patterns",
+    "sections",
+    "clips",
+    "effects",
+    "master"
+  ]
+}

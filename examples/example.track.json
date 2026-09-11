@@ -1,0 +1,840 @@
+{
+  "format_version": "techno-csound-1",
+  "title": "Concrete Bloom \u2014 format demonstration",
+  "seed": 5705,
+  "bpm": 140,
+  "bars": 32,
+  "swing": 0.08,
+  "tonality": {
+    "root_pitch_class": 7,
+    "scale_intervals": [
+      0,
+      3,
+      5,
+      7,
+      10
+    ]
+  },
+  "tracks": [
+    {
+      "id": "kick",
+      "voice": "kick",
+      "role": "Centered foreground engine; dry and stable",
+      "tone": 0.32,
+      "drive": 1.3,
+      "mix": {
+        "gain_db": 0,
+        "pan": 0,
+        "highpass_hz": 25,
+        "lowpass_hz": 9000,
+        "room_send": 0,
+        "delay_send": 0,
+        "duck": 0
+      }
+    },
+    {
+      "id": "bass",
+      "voice": "bass",
+      "role": "Short syncopated low-mid answer, ducked to kick",
+      "tone": 0.35,
+      "drive": 1.7,
+      "mix": {
+        "gain_db": -3,
+        "pan": 0,
+        "highpass_hz": 38,
+        "lowpass_hz": 1300,
+        "room_send": 0.015,
+        "delay_send": 0,
+        "duck": 0.72
+      }
+    },
+    {
+      "id": "closed",
+      "voice": "closed_hat",
+      "role": "Upper left ticks with velocity groove",
+      "tone": 0.65,
+      "drive": 1.1,
+      "mix": {
+        "gain_db": -1,
+        "pan": -0.3,
+        "highpass_hz": 5500,
+        "lowpass_hz": 13000,
+        "room_send": 0.1,
+        "delay_send": 0.03,
+        "duck": 0.12
+      }
+    },
+    {
+      "id": "open",
+      "voice": "open_hat",
+      "role": "Upper right offbeat air",
+      "tone": 0.45,
+      "drive": 1.1,
+      "mix": {
+        "gain_db": -4,
+        "pan": 0.35,
+        "highpass_hz": 4800,
+        "lowpass_hz": 12000,
+        "room_send": 0.17,
+        "delay_send": 0,
+        "duck": 0.18
+      }
+    },
+    {
+      "id": "clap",
+      "voice": "clap",
+      "role": "Central backbeat sharing the room",
+      "tone": 0.45,
+      "drive": 1.3,
+      "mix": {
+        "gain_db": -3,
+        "pan": 0.08,
+        "highpass_hz": 700,
+        "lowpass_hz": 7500,
+        "room_send": 0.25,
+        "delay_send": 0.03,
+        "duck": 0.1
+      }
+    },
+    {
+      "id": "metal",
+      "voice": "perc",
+      "role": "Mid-distance metallic counter-rhythm",
+      "tone": 0.7,
+      "drive": 1.5,
+      "mix": {
+        "gain_db": -6,
+        "pan": -0.4,
+        "highpass_hz": 420,
+        "lowpass_hz": 6200,
+        "room_send": 0.32,
+        "delay_send": 0.2,
+        "duck": 0.25
+      }
+    },
+    {
+      "id": "hook",
+      "voice": "stab",
+      "role": "Warm midrange identity, filter evolves per note",
+      "tone": 0.48,
+      "drive": 1.6,
+      "mix": {
+        "gain_db": -3,
+        "pan": 0.22,
+        "highpass_hz": 170,
+        "lowpass_hz": 3400,
+        "room_send": 0.22,
+        "delay_send": 0.25,
+        "duck": 0.45
+      }
+    },
+    {
+      "id": "riser",
+      "voice": "noise",
+      "role": "Rear-plane transition swell",
+      "tone": 0.72,
+      "drive": 1.2,
+      "mix": {
+        "gain_db": -12,
+        "pan": -0.15,
+        "highpass_hz": 500,
+        "lowpass_hz": 6800,
+        "room_send": 0.4,
+        "delay_send": 0.2,
+        "duck": 0.3
+      }
+    }
+  ],
+  "patterns": [
+    {
+      "id": "four_floor",
+      "bars": 1,
+      "events": [
+        {
+          "step": 0,
+          "duration_steps": 2.7,
+          "midi": 31,
+          "velocity": 0.96,
+          "probability": 1
+        },
+        {
+          "step": 4,
+          "duration_steps": 2.7,
+          "midi": 31,
+          "velocity": 0.9,
+          "probability": 1
+        },
+        {
+          "step": 8,
+          "duration_steps": 2.7,
+          "midi": 31,
+          "velocity": 0.9,
+          "probability": 1
+        },
+        {
+          "step": 12,
+          "duration_steps": 2.7,
+          "midi": 31,
+          "velocity": 0.9,
+          "probability": 1
+        }
+      ]
+    },
+    {
+      "id": "bass_a",
+      "bars": 1,
+      "events": [
+        {
+          "step": 3,
+          "duration_steps": 0.85,
+          "midi": 31,
+          "velocity": 0.75,
+          "probability": 1
+        },
+        {
+          "step": 6,
+          "duration_steps": 0.85,
+          "midi": 31,
+          "velocity": 0.9,
+          "probability": 1
+        },
+        {
+          "step": 10,
+          "duration_steps": 0.85,
+          "midi": 34,
+          "velocity": 0.72,
+          "probability": 1
+        },
+        {
+          "step": 14,
+          "duration_steps": 0.85,
+          "midi": 38,
+          "velocity": 0.85,
+          "probability": 1
+        }
+      ]
+    },
+    {
+      "id": "bass_b",
+      "bars": 1,
+      "events": [
+        {
+          "step": 2,
+          "duration_steps": 0.8,
+          "midi": 31,
+          "velocity": 0.8,
+          "probability": 1
+        },
+        {
+          "step": 6,
+          "duration_steps": 0.8,
+          "midi": 38,
+          "velocity": 0.88,
+          "probability": 1
+        },
+        {
+          "step": 9,
+          "duration_steps": 0.8,
+          "midi": 34,
+          "velocity": 0.67,
+          "probability": 1
+        },
+        {
+          "step": 11,
+          "duration_steps": 0.8,
+          "midi": 31,
+          "velocity": 0.8,
+          "probability": 1
+        },
+        {
+          "step": 14,
+          "duration_steps": 0.8,
+          "midi": 41,
+          "velocity": 0.77,
+          "probability": 1
+        }
+      ]
+    },
+    {
+      "id": "closed_a",
+      "bars": 1,
+      "events": [
+        {
+          "step": 0,
+          "duration_steps": 0.4,
+          "midi": 60,
+          "velocity": 0.55,
+          "probability": 1
+        },
+        {
+          "step": 2,
+          "duration_steps": 0.4,
+          "midi": 60,
+          "velocity": 0.82,
+          "probability": 1
+        },
+        {
+          "step": 4,
+          "duration_steps": 0.4,
+          "midi": 60,
+          "velocity": 0.6,
+          "probability": 1
+        },
+        {
+          "step": 6,
+          "duration_steps": 0.4,
+          "midi": 60,
+          "velocity": 0.92,
+          "probability": 1
+        },
+        {
+          "step": 8,
+          "duration_steps": 0.4,
+          "midi": 60,
+          "velocity": 0.55,
+          "probability": 1
+        },
+        {
+          "step": 10,
+          "duration_steps": 0.4,
+          "midi": 60,
+          "velocity": 0.82,
+          "probability": 1
+        },
+        {
+          "step": 12,
+          "duration_steps": 0.4,
+          "midi": 60,
+          "velocity": 0.6,
+          "probability": 1
+        },
+        {
+          "step": 14,
+          "duration_steps": 0.4,
+          "midi": 60,
+          "velocity": 0.92,
+          "probability": 1
+        }
+      ]
+    },
+    {
+      "id": "closed_b",
+      "bars": 1,
+      "events": [
+        {
+          "step": 0,
+          "duration_steps": 0.3,
+          "midi": 60,
+          "velocity": 0.36,
+          "probability": 1
+        },
+        {
+          "step": 1,
+          "duration_steps": 0.3,
+          "midi": 60,
+          "velocity": 0.58,
+          "probability": 0.85
+        },
+        {
+          "step": 2,
+          "duration_steps": 0.3,
+          "midi": 60,
+          "velocity": 0.43,
+          "probability": 1
+        },
+        {
+          "step": 3,
+          "duration_steps": 0.3,
+          "midi": 60,
+          "velocity": 0.78,
+          "probability": 0.85
+        },
+        {
+          "step": 4,
+          "duration_steps": 0.3,
+          "midi": 60,
+          "velocity": 0.36,
+          "probability": 1
+        },
+        {
+          "step": 5,
+          "duration_steps": 0.3,
+          "midi": 60,
+          "velocity": 0.58,
+          "probability": 0.85
+        },
+        {
+          "step": 6,
+          "duration_steps": 0.3,
+          "midi": 60,
+          "velocity": 0.43,
+          "probability": 1
+        },
+        {
+          "step": 7,
+          "duration_steps": 0.3,
+          "midi": 60,
+          "velocity": 0.78,
+          "probability": 0.85
+        },
+        {
+          "step": 8,
+          "duration_steps": 0.3,
+          "midi": 60,
+          "velocity": 0.36,
+          "probability": 1
+        },
+        {
+          "step": 9,
+          "duration_steps": 0.3,
+          "midi": 60,
+          "velocity": 0.58,
+          "probability": 0.85
+        },
+        {
+          "step": 10,
+          "duration_steps": 0.3,
+          "midi": 60,
+          "velocity": 0.43,
+          "probability": 1
+        },
+        {
+          "step": 11,
+          "duration_steps": 0.3,
+          "midi": 60,
+          "velocity": 0.78,
+          "probability": 0.85
+        },
+        {
+          "step": 12,
+          "duration_steps": 0.3,
+          "midi": 60,
+          "velocity": 0.36,
+          "probability": 1
+        },
+        {
+          "step": 13,
+          "duration_steps": 0.3,
+          "midi": 60,
+          "velocity": 0.58,
+          "probability": 0.85
+        },
+        {
+          "step": 14,
+          "duration_steps": 0.3,
+          "midi": 60,
+          "velocity": 0.43,
+          "probability": 1
+        },
+        {
+          "step": 15,
+          "duration_steps": 0.3,
+          "midi": 60,
+          "velocity": 0.78,
+          "probability": 0.85
+        }
+      ]
+    },
+    {
+      "id": "offbeat",
+      "bars": 1,
+      "events": [
+        {
+          "step": 2,
+          "duration_steps": 1.55,
+          "midi": 60,
+          "velocity": 0.74,
+          "probability": 1
+        },
+        {
+          "step": 6,
+          "duration_steps": 1.55,
+          "midi": 60,
+          "velocity": 0.74,
+          "probability": 1
+        },
+        {
+          "step": 10,
+          "duration_steps": 1.55,
+          "midi": 60,
+          "velocity": 0.74,
+          "probability": 1
+        },
+        {
+          "step": 14,
+          "duration_steps": 1.55,
+          "midi": 60,
+          "velocity": 0.74,
+          "probability": 1
+        }
+      ]
+    },
+    {
+      "id": "backbeat",
+      "bars": 1,
+      "events": [
+        {
+          "step": 4,
+          "duration_steps": 1.25,
+          "midi": 60,
+          "velocity": 0.85,
+          "probability": 1
+        },
+        {
+          "step": 12,
+          "duration_steps": 1.25,
+          "midi": 60,
+          "velocity": 0.85,
+          "probability": 1
+        }
+      ]
+    },
+    {
+      "id": "metal_a",
+      "bars": 1,
+      "events": [
+        {
+          "step": 1,
+          "duration_steps": 0.7,
+          "midi": 55,
+          "velocity": 0.6,
+          "probability": 1
+        },
+        {
+          "step": 7,
+          "duration_steps": 1.1,
+          "midi": 62,
+          "velocity": 0.75,
+          "probability": 1
+        },
+        {
+          "step": 11,
+          "duration_steps": 0.6,
+          "midi": 58,
+          "velocity": 0.52,
+          "probability": 0.85
+        },
+        {
+          "step": 14,
+          "duration_steps": 0.8,
+          "midi": 67,
+          "velocity": 0.65,
+          "probability": 1
+        }
+      ]
+    },
+    {
+      "id": "hook_a",
+      "bars": 1,
+      "events": [
+        {
+          "step": 2,
+          "duration_steps": 1.2,
+          "midi": 55,
+          "velocity": 0.75,
+          "probability": 1
+        },
+        {
+          "step": 7,
+          "duration_steps": 1.4,
+          "midi": 58,
+          "velocity": 0.85,
+          "probability": 1
+        },
+        {
+          "step": 10,
+          "duration_steps": 1.1,
+          "midi": 62,
+          "velocity": 0.62,
+          "probability": 1
+        },
+        {
+          "step": 15,
+          "duration_steps": 0.8,
+          "midi": 55,
+          "velocity": 0.8,
+          "probability": 1
+        }
+      ]
+    },
+    {
+      "id": "hook_b",
+      "bars": 1,
+      "events": [
+        {
+          "step": 1,
+          "duration_steps": 1.1,
+          "midi": 55,
+          "velocity": 0.7,
+          "probability": 1
+        },
+        {
+          "step": 6,
+          "duration_steps": 1.4,
+          "midi": 62,
+          "velocity": 0.9,
+          "probability": 1
+        },
+        {
+          "step": 10,
+          "duration_steps": 1.2,
+          "midi": 65,
+          "velocity": 0.78,
+          "probability": 1
+        },
+        {
+          "step": 14,
+          "duration_steps": 1.7,
+          "midi": 58,
+          "velocity": 0.85,
+          "probability": 1
+        }
+      ]
+    },
+    {
+      "id": "swell",
+      "bars": 1,
+      "events": [
+        {
+          "step": 0,
+          "duration_steps": 15.8,
+          "midi": 60,
+          "velocity": 0.9,
+          "probability": 1
+        }
+      ]
+    }
+  ],
+  "sections": [
+    {
+      "name": "Foundation",
+      "start_bar": 0,
+      "bars": 4,
+      "intent": "Establish kick and bass; add upper ticks halfway through."
+    },
+    {
+      "name": "Drive",
+      "start_bar": 4,
+      "bars": 4,
+      "intent": "Introduce backbeat and metallic answers."
+    },
+    {
+      "name": "Identity",
+      "start_bar": 8,
+      "bars": 8,
+      "intent": "Present the hook and gradually open its filter."
+    },
+    {
+      "name": "Airlock",
+      "start_bar": 16,
+      "bars": 4,
+      "intent": "Remove kick and bass; leave hook, room and a final swell."
+    },
+    {
+      "name": "Main drop",
+      "start_bar": 20,
+      "bars": 8,
+      "intent": "Return full groove, hook variation and open hats."
+    },
+    {
+      "name": "Exit",
+      "start_bar": 28,
+      "bars": 4,
+      "intent": "Remove hook and backbeat, leaving a mixable rhythm."
+    }
+  ],
+  "clips": [
+    {
+      "track": "kick",
+      "pattern": "four_floor",
+      "start_bar": 0,
+      "bars": 16,
+      "gain_db": 0,
+      "transpose": 0,
+      "ramps": []
+    },
+    {
+      "track": "kick",
+      "pattern": "four_floor",
+      "start_bar": 20,
+      "bars": 12,
+      "gain_db": 0,
+      "transpose": 0,
+      "ramps": []
+    },
+    {
+      "track": "bass",
+      "pattern": "bass_a",
+      "start_bar": 0,
+      "bars": 16,
+      "gain_db": 0,
+      "transpose": 0,
+      "ramps": []
+    },
+    {
+      "track": "bass",
+      "pattern": "bass_b",
+      "start_bar": 20,
+      "bars": 8,
+      "gain_db": 0,
+      "transpose": 0,
+      "ramps": []
+    },
+    {
+      "track": "bass",
+      "pattern": "bass_a",
+      "start_bar": 28,
+      "bars": 4,
+      "gain_db": -2,
+      "transpose": 0,
+      "ramps": []
+    },
+    {
+      "track": "closed",
+      "pattern": "closed_a",
+      "start_bar": 2,
+      "bars": 14,
+      "gain_db": 0,
+      "transpose": 0,
+      "ramps": []
+    },
+    {
+      "track": "closed",
+      "pattern": "closed_b",
+      "start_bar": 20,
+      "bars": 8,
+      "gain_db": 0,
+      "transpose": 0,
+      "ramps": []
+    },
+    {
+      "track": "closed",
+      "pattern": "closed_a",
+      "start_bar": 28,
+      "bars": 4,
+      "gain_db": 0,
+      "transpose": 0,
+      "ramps": []
+    },
+    {
+      "track": "clap",
+      "pattern": "backbeat",
+      "start_bar": 4,
+      "bars": 12,
+      "gain_db": 0,
+      "transpose": 0,
+      "ramps": []
+    },
+    {
+      "track": "clap",
+      "pattern": "backbeat",
+      "start_bar": 20,
+      "bars": 8,
+      "gain_db": 0,
+      "transpose": 0,
+      "ramps": []
+    },
+    {
+      "track": "metal",
+      "pattern": "metal_a",
+      "start_bar": 4,
+      "bars": 12,
+      "gain_db": 0,
+      "transpose": 0,
+      "ramps": []
+    },
+    {
+      "track": "metal",
+      "pattern": "metal_a",
+      "start_bar": 20,
+      "bars": 8,
+      "gain_db": 0,
+      "transpose": 0,
+      "ramps": []
+    },
+    {
+      "track": "hook",
+      "pattern": "hook_a",
+      "start_bar": 8,
+      "bars": 8,
+      "gain_db": 0,
+      "transpose": 0,
+      "ramps": [
+        {
+          "parameter": "lowpass_hz",
+          "from": 1500,
+          "to": 4800
+        }
+      ]
+    },
+    {
+      "track": "hook",
+      "pattern": "hook_a",
+      "start_bar": 16,
+      "bars": 3,
+      "gain_db": -5,
+      "transpose": 0,
+      "ramps": [
+        {
+          "parameter": "room_send",
+          "from": 0.25,
+          "to": 0.5
+        }
+      ]
+    },
+    {
+      "track": "hook",
+      "pattern": "hook_b",
+      "start_bar": 20,
+      "bars": 8,
+      "gain_db": 0,
+      "transpose": 0,
+      "ramps": [
+        {
+          "parameter": "lowpass_hz",
+          "from": 3000,
+          "to": 5600
+        }
+      ]
+    },
+    {
+      "track": "open",
+      "pattern": "offbeat",
+      "start_bar": 12,
+      "bars": 4,
+      "gain_db": 0,
+      "transpose": 0,
+      "ramps": []
+    },
+    {
+      "track": "open",
+      "pattern": "offbeat",
+      "start_bar": 20,
+      "bars": 8,
+      "gain_db": 0,
+      "transpose": 0,
+      "ramps": []
+    },
+    {
+      "track": "riser",
+      "pattern": "swell",
+      "start_bar": 19,
+      "bars": 1,
+      "gain_db": 0,
+      "transpose": 0,
+      "ramps": []
+    }
+  ],
+  "effects": {
+    "room_feedback": 0.76,
+    "room_damping_hz": 4800,
+    "room_return_db": -9,
+    "delay_beats": 0.75,
+    "echo_decay": 0.42,
+    "delay_return_db": -12
+  },
+  "master": {
+    "gain_db": -4,
+    "tail_seconds": 5
+  }
+}

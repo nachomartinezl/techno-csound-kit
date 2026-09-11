@@ -1,0 +1,36 @@
+{
+  "contract_revision": "1.1.0",
+  "source_sha256": "b202948a1211a04983a70da4433714bbb8cad425b44a0e1cd2f74f2977b44613",
+  "schemas": {
+    "full": {
+      "nodes": 66,
+      "depth": 5
+    },
+    "structure": {
+      "nodes": 27,
+      "depth": 3
+    },
+    "tracks": {
+      "nodes": 16,
+      "depth": 4
+    },
+    "patterns": {
+      "nodes": 12,
+      "depth": 5
+    },
+    "clips": {
+      "nodes": 14,
+      "depth": 5
+    }
+  },
+  "note": "Node/depth statistics are local regression metrics, NOT Google's undocumented decoder budget.",
+  "generated_sha256": {
+    "schemas/gemini-response-schema.json": "4fab9f86f80be48d367a2516c7c4e596b2c4193d294adba9493e6e7ea73adb42",
+    "schemas/track.openapi.json": "6cc1297dc81f9793183a5741313018fc92f5f9bade31abe2abe6206cee8fb1a2",
+    "schemas/gemini-stages/structure.schema.json": "241b55a4c939f3c3d6a08f974c9343738524df03b923f68d900b3ac6fc6f4780",
+    "schemas/gemini-stages/tracks.schema.json": "a0299208a41271e903c3492843f9042dc36f7b395ee02a4f25e519eaff9bc8ad",
+    "schemas/gemini-stages/patterns.schema.json": "49aefcc4a00977118d644ad22d653ce72ac3001092211bc0b80524993e115630",
+    "schemas/gemini-stages/clips.schema.json": "1b1afac69b220b2385669ee694bc0bce6e6282d811539f701b2ee9acea29bd15",
+    "prompts/SYSTEM_PROMPT.txt": "e957d2ce3e6c7e610a64fd93c8a28e69d1ac2cb6d0d587411c1281a747cb117d"
+  }
+}

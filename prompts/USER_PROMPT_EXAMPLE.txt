@@ -1,0 +1,34 @@
+Create a roughly three-minute Berlin techno-trance journey called Neon Pressure Ritual.
+Use 105 bars at 140 BPM, swing 0.08, and seed 81247. This is 180 seconds of music;
+allow 4.5 seconds of tail, for 184.5 seconds total.
+
+Use F Phrygian: root_pitch_class 5, scale_intervals [0,1,3,5,7,8,10]. Focus the hook
+on F, Ab, C, Eb, with an occasional Gb for tension. Use the supported stab voice
+for the arpeggio and quieter longer stab notes for a background texture.
+
+Make the track dark, hypnotic and physically driving, with restrained early-trance
+lift. Give the kick a firm centered body near MIDI 32 (about 52 Hz), drive around
+1.4, and 2–3 step notes. Keep short rolling bass notes between kicks and duck the
+bass from them. Start the bass at a lower gain than the kick and leave deliberate rests.
+
+Build a recognizable two-bar gated motif. Develop it through explicit note variants,
+accents, octave transpositions and note-onset lowpass ramps. Keep the dry motif close
+to center with dark delayed reflections. Do not request controls or voices absent
+from the system contract.
+
+Use contrasting hat positions, open hats in drops, a nearly centered clap, and sparse
+metallic answers. Use shared room depth; start sends moderately, around 0.1–0.35,
+and reserve larger send values for deliberate transition moments.
+
+Sections (start_bar, bars):
+- Intro (0,8): establish kick, quiet bass hints and atmosphere.
+- Development (8,16): reveal the rolling bass, clap and motif.
+- First drop (24,16): full pulse, motif, open hats and metal.
+- Breakdown (40,8): no kick or bass; use motif fragments and room space.
+- Rebuild (48,9): gradually restore rhythm and introduce a motif variation.
+- Final drop (57,32): strongest groove, with subtraction and return every eight bars.
+- Outro (89,16): remove the motif and bright percussion gradually; finish with a clean tail.
+
+Use probability 1 on kick and main hook notes. Apply small velocity changes and
+probability only to secondary details. Keep repetition intentional and audible.
+Return only the JSON fields requested by the configured response schema.

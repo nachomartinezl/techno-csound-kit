@@ -1,0 +1,28 @@
+# Local compositions and renders
+/projects/*
+!/projects/README.md
+/reports/
+/track_*
+*.audio/
+*.csd
+*.events.json
+*.validation.json
+*.repair.txt
+*.wav
+*.mp3
+*.flac
+*.ogg
+
+# Python and editor artifacts
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.DS_Store
+*.swp
+.env
+.env.*
